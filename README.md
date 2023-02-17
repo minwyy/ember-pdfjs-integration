@@ -1,12 +1,15 @@
 # ember-pdfjs-integration
+This repo itself is working now. Following the instructions in 'Installation' and 'Running' sections for local test. 
 
-`NPM install pdfjs-dist -D` should be working without any configuration. However, it reported error "**Unexpected** character '#'" . After I updated ember-auto-import to v2.6.0, which has new version of babel preset-env  including private method, pdfjs still cannot be properly transpired. Therefore I mannually set the babel-loader to transpire the package in ember-cli-build and it is working then. 
+## Why pdf.js integration failed to integrate with ember apps
+`NPM install pdfjs-dist -D` is supposed be working without any configuration with the help of ember-auto-import. However, the app would explode with error complaining about **Unexpected** character '#'. 
+After I updated ember-auto-import from v1.12 to v2.6.0 which has a newer version of babel preset-env including es2022 features like private method, app still wouldn't run as pdfjs couldn't be properly transpired and complaining that 'Class private methods are not enabled'. Therefore we have to mannually set the babel-loader to transpire the package in ember-cli-build and then it will be working. 
 
-So make pdfjs working we need:
+In summary, to make pdfjs working in your ember apps, do following steps:
 
 1. install pdfjs-dist package (e.g. npm)
-2. upgrade ember-auto-import to v2.6.0
-3. set babel-loader to transpire the pdf.js from the package (see ember-cli-build.js in the app)
+2. upgrade ember-auto-import to v2.6.0 (which is a breaking change)
+3. set babel-loader to transpire the pdf.js using babel preset-env (see ember-cli-build.js in ember-pdfjs-integration)
 
 ## Prerequisites
 
@@ -23,7 +26,7 @@ You will need the following things properly installed on your computer.
 * `cd ember-quickstart`
 * `npm install`
 
-## Running / Development
+## Running
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
