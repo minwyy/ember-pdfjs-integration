@@ -4,7 +4,7 @@
 
 So make pdfjs working we need:
 
-1. install pdfjs-dist package (i.e. npm)
+1. install pdfjs-dist package (e.g. npm)
 2. upgrade ember-auto-import to v2.6.0
 3. set babel-loader to transpire the pdf.js from the package (see ember-cli-build.js in the app)
 
