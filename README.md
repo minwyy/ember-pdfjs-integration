@@ -2,6 +2,12 @@
 
 `NPM install pdfjs-dist -D` should be working without any configuration. However, it reported error "**Unexpected** character '#'" . After I updated ember-auto-import to v2.6.0, which has new version of babel preset-env  including private method, pdfjs still cannot be properly transpired. Therefore I mannually set the babel-loader to transpire the package in ember-cli-build and it is working then. 
 
+So make pdfjs working we need:
+
+1. install pdfjs-dist package (i.e. npm)
+2. upgrade ember-auto-import to v2.6.0
+3. set babel-loader to transpire the pdf.js from the package (see ember-cli-build.js in the app)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
